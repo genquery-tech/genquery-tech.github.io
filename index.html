@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Genquery Technology Services - AI Consulting, AI Agents, and Large Language Models">
-    <title>Genquery Technology Services | AI Consulting & Solutions</title>
+    <meta name="description" content="GenQuery Technology Services — Applied AI consulting, research collaboration, and training grounded in active research.">
+    <title>GenQuery Technology Services</title>
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #7c3aed;
-            --accent-color: #06b6d4;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg: #F5F0E8;
+            --surface: #EDE8DC;
+            --surface-2: #E5DFD1;
+            --border: #D4CCBA;
+            --text: #1A1A1A;
+            --text-muted: #5C5750;
+            --accent: #2D2D2D;
         }
 
         * {
@@ -27,390 +27,606 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--text);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            padding-top: 60px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 920px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
-        /* Header */
-        header {
-            background: var(--bg-white);
-            padding: 1.5rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
+        /* ── Navigation (copied from PhantomGrad) ── */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 60px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
             z-index: 100;
+            display: flex;
+            align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
+        .nav-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .nav-logo {
             font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            color: var(--accent);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .nav-logo:hover { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.1rem;
+            list-style: none;
+            flex-wrap: nowrap;
         }
 
-        /* Hero Section */
+        .nav-links a {
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 0.3rem 0.55rem;
+            border-radius: 6px;
+            transition: color 0.15s, background 0.15s;
+            white-space: nowrap;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+            background: var(--surface);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.3rem;
+            color: var(--accent);
+        }
+        .nav-toggle svg { display: block; }
+
+        /* ── Sections ── */
+        section {
+            padding: 3.5rem 0;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* ── Hero ── */
         .hero {
-            padding: 6rem 0;
-            text-align: center;
-            background: var(--bg-white);
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid var(--border);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .hero .lead {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 640px;
             margin-bottom: 1.5rem;
-            color: var(--text-dark);
-            line-height: 1.2;
         }
 
-        .hero .gradient-text {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto 2rem;
+        .hero .differentiator {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            max-width: 600px;
+            padding: 0.9rem 1.1rem;
+            border-left: 3px solid var(--border);
+            margin-bottom: 1.75rem;
+            background: var(--surface);
+            border-radius: 0 6px 6px 0;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--gradient);
-            color: white;
+            padding: 0.65rem 1.4rem;
+            background: var(--accent);
+            color: #fff;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: opacity 0.15s;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            opacity: 0.85;
         }
 
-        /* Services Section */
-        .services {
-            padding: 5rem 0;
-            background: var(--bg-light);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-        }
-
+        /* ── Service Cards ── */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
         }
 
         .service-card {
-            background: var(--bg-white);
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem 1.4rem;
+            transition: background 0.15s;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            background: var(--surface-2);
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--text);
         }
 
         .service-card p {
-            color: var(--text-light);
-            line-height: 1.7;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        /* Team Section */
-        .team {
-            padding: 5rem 0;
-            background: var(--bg-white);
-        }
-
-        .team-grid {
+        /* ── Expertise Theme Cards ── */
+        .themes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1.25rem;
         }
 
-        .team-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 16px;
+        .theme-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.9rem 1.1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text);
+            transition: background 0.15s;
+        }
+
+        .theme-card:hover {
+            background: var(--surface-2);
+        }
+
+        /* ── Logo Grid ── */
+        .clients-intro {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .logo-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background 0.15s;
+            min-height: 90px;
         }
 
-        .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        .logo-item:hover {
+            background: var(--surface-2);
+        }
+
+        .logo-item img {
+            max-width: 100px;
+            max-height: 40px;
+            object-fit: contain;
+            filter: grayscale(40%);
+            opacity: 0.85;
+            transition: 0.15s;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .logo-item span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .logo-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ── Team ── */
+        .team-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.4rem;
+            max-width: 540px;
         }
 
         .team-photo {
-            width: 180px;
-            height: 180px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 1.5rem;
-            border: 4px solid var(--bg-white);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+            border: 2px solid var(--border);
         }
 
-        .team-placeholder {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 100%);
-            margin: 0 auto 1.5rem;
+        .team-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .team-info .role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .team-info .affil {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .team-info .note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .team-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.15s;
+        }
+
+        .team-links a:hover {
+            color: var(--text);
+        }
+
+        /* ── Contact ── */
+        .contact-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.4rem;
+            max-width: 540px;
+        }
+
+        .contact-block p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .contact-block a {
+            font-size: 0.9rem;
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: opacity 0.15s;
+        }
+
+        .contact-block a:hover {
+            opacity: 0.7;
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 1.75rem 0;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--secondary-color);
-            border: 4px solid var(--bg-white);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .team-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .team-card .role {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .team-card .affiliation {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Clients Section */
-        .clients {
-            padding: 5rem 0;
-            background: var(--bg-light);
-            text-align: center;
-        }
-
-        .clients-grid {
+        footer .container {
             display: flex;
-            justify-content: center;
-            gap: 3rem;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-
-        .client-badge {
-            background: var(--bg-light);
-            padding: 1.5rem 2.5rem;
-            border-radius: 12px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 0;
-            background: var(--bg-light);
-            text-align: center;
-        }
-
-        .contact p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .contact a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.3rem;
-            transition: color 0.3s ease;
-        }
-
-        .contact a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
+            gap: 0.75rem;
+            width: 100%;
         }
 
         footer p {
-            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
 
-        /* Responsive */
+        .footer-links {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* ── Dividers ── */
+        section + section {
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Responsive ── */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0; right: 0;
+                background: var(--bg);
+                border-bottom: 1px solid var(--border);
+                padding: 0.75rem 1.5rem;
+                gap: 0.1rem;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 0.5rem 0.3rem; }
+            .nav-toggle { display: flex; }
+
             .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .clients-grid {
-                gap: 1.5rem;
+            .themes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             }
 
-            .team-grid {
-                grid-template-columns: 1fr;
+            .team-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .team-links {
+                justify-content: center;
+            }
+
+            footer .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .themes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .logo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">Genquery Technology Services</div>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">GenQuery</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div data-aos="fade-up">
-                <h1>
-                    Transform Your Business with<br>
-                    <span class="gradient-text">AI Innovation</span>
-                </h1>
-                <p>
-                    Expert consulting in Generative AI, AI Agents, and Large Language Models.
-                    Empowering startups, enterprises, and universities to harness the power of artificial intelligence.
-                </p>
-                <a href="#contact" class="cta-button">Get Started</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Our Expertise</h2>
-
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI Consulting</h3>
-                    <p>Strategic guidance on implementing AI solutions tailored to your business needs. From strategy to execution, we help you navigate the AI landscape.</p>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">🧠</div>
-                    <h3>Large Language Models</h3>
-                    <p>Leverage the power of LLMs to automate tasks, generate content, and build intelligent applications that understand and respond to natural language.</p>
-                </div>
-
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">⚡</div>
-                    <h3>AI Agents</h3>
-                    <p>Design and deploy autonomous AI agents that can reason, plan, and take action to solve complex problems and automate workflows.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team" id="team">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Meet Our Team</h2>
-
-            <div class="team-grid">
-                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="dhruv.jpeg" alt="Dr. Dhruv Kumar" class="team-photo">
-                    <h3>Dr. Dhruv Kumar</h3>
-                    <div class="role">Faculty</div>
-                    <div class="affiliation">BITS Pilani</div>
-                </div>
-
-                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="team-placeholder">👤</div>
-                    <h3>Devanshu Sahoo</h3>
-                    <div class="role">PhD Student</div>
-                    <div class="affiliation">BITS Pilani</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Clients Section -->
-    <section class="clients" id="clients">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Who We Work With</h2>
-            <div class="clients-grid" data-aos="fade-up" data-aos-delay="100">
-                <div class="client-badge">🚀 Startups</div>
-                <div class="client-badge">🏢 Enterprises</div>
-                <div class="client-badge">🎓 Universities</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Let's Build Something Amazing</h2>
-            <p data-aos="fade-up" data-aos-delay="100">
-                Ready to transform your business with AI? Get in touch with us today.
+            <p class="section-label">GenQuery Technology Services</p>
+            <h1>Applied AI —<br>From Research to Real-World Impact</h1>
+            <p class="lead">
+                We bring research-grade AI expertise to industry. We consult, collaborate, and train —
+                helping organizations build AI systems grounded in the latest advances in large language
+                models, AI agents, and intelligent automation.
             </p>
-            <div data-aos="fade-up" data-aos-delay="200">
+            <p class="differentiator">
+                Unlike general-purpose AI vendors, our consulting is backed by active research — we work
+                on the same problems in the lab that we solve for you.
+            </p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <p class="section-label">What We Do</p>
+            <h2>Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>AI Consultancy</h3>
+                    <p>We partner with startups, labs, and enterprises to design and deploy AI systems tailored to their domain. Our work spans LLM-powered applications, AI agents, retrieval-augmented systems, and custom AI workflows — built on research, not just tooling.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Research Collaboration</h3>
+                    <p>We take on joint R&amp;D engagements where the problem requires more than off-the-shelf solutions. If your organization faces a hard AI problem in software automation, education, multi-modal data, or domain-specific reasoning — we want to hear from you.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Training &amp; Workshops</h3>
+                    <p>We design and deliver hands-on training programs in generative AI, LLMs, and AI agents — for technical teams, product organizations, and academic institutions. Programs range from executive overviews to deep technical workshops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise">
+        <div class="container">
+            <p class="section-label">Research &amp; Applied Work</p>
+            <h2>Areas of Expertise</h2>
+            <div class="themes-grid">
+                <div class="theme-card">AI Agents &amp; LLMs</div>
+                <div class="theme-card">AI for Education</div>
+                <div class="theme-card">AI for Software Engineering</div>
+                <div class="theme-card">Reinforcement Learning &amp; LLM Training</div>
+                <div class="theme-card">Mechanistic Interpretability</div>
+                <div class="theme-card">Multi-Modal Foundation Models</div>
+                <div class="theme-card">AI for Science &amp; Environment</div>
+                <div class="theme-card">Distributed Systems &amp; Edge Computing</div>
+                <div class="theme-card">Data Mining &amp; Parallel Computing</div>
+                <div class="theme-card">AI Safety &amp; Jailbreaking</div>
+                <div class="theme-card">Multi-lingual &amp; Cultural AI</div>
+                <div class="theme-card">Games &amp; Sports AI</div>
+                <div class="theme-card">Bias in LLMs</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section id="clients">
+        <div class="container">
+            <p class="section-label">Who We Work With</p>
+            <h2>Clients &amp; Partners</h2>
+            <p class="clients-intro">Our current clients include AI research labs and industry startups.</p>
+            <div class="logo-grid">
+                <div class="logo-item">
+                    <img src="https://trustwise.ai/wp-content/uploads/2025/05/New-Logo.png" alt="Trustwise AI" loading="lazy">
+                    <span>Trustwise AI</span>
+                </div>
+                <div class="logo-item">
+                    <span class="logo-text">Disha AI</span>
+                    <span>Adaptive Learning</span>
+                </div>
+                <div class="logo-item">
+                    <span class="logo-text">Birla AI Labs</span>
+                    <span>AI Research</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team">
+        <div class="container">
+            <p class="section-label">People</p>
+            <h2>Team</h2>
+            <div class="team-card">
+                <img src="dhruv.jpeg" alt="Dr. Dhruv Kumar" class="team-photo">
+                <div class="team-info">
+                    <h3>Dr. Dhruv Kumar</h3>
+                    <p class="role">Founder &amp; Director</p>
+                    <p class="affil">Assistant Professor, BITS Pilani</p>
+                    <p class="note">Also leads <a href="https://phantomgrad.github.io" target="_blank" rel="noopener">PhantomGrad</a> — an AI research lab at BITS Pilani.</p>
+                    <div class="team-links">
+                        <a href="https://phantomgrad.github.io" target="_blank" rel="noopener">Website</a>
+                        <a href="https://scholar.google.co.in/citations?user=cobNGlcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+                        <a href="mailto:dhruv.kumar@pilani.bits-pilani.ac.in">Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <p class="section-label">Get in Touch</p>
+            <h2>Let's Work Together</h2>
+            <div class="contact-block">
+                <p>We're open to consultancy engagements, research collaborations, and training requests. Reach out with a brief description of your project or need.</p>
                 <a href="mailto:dhruv.kumar@pilani.bits-pilani.ac.in">dhruv.kumar@pilani.bits-pilani.ac.in</a>
             </div>
         </div>
@@ -419,17 +635,27 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Genquery Technology Services Pvt. Ltd. All rights reserved.</p>
+            <p>&copy; 2026 GenQuery Technology Services Pvt. Ltd. &mdash; <a href="https://phantomgrad.github.io" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:underline;text-underline-offset:3px;">PhantomGrad Lab</a></p>
+            <nav class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#clients">Clients</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </footer>
 
-    <!-- AOS Animation Script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => navLinks.classList.remove('open'));
         });
     </script>
 </body>
