@@ -242,20 +242,27 @@
             background: var(--surface-2);
         }
 
-        /* ── Logo Grid ── */
-        .clients-intro {
-            font-size: 0.9rem;
+        /* ── Collaborators ── */
+        .collab-category-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .logo-grid {
+        .collab-logo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+            grid-auto-rows: 78px;
+            gap: 1rem 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
-        .logo-item {
+        .collab-logo-item {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 6px;
@@ -264,39 +271,28 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             text-align: center;
-            transition: background 0.15s;
-            min-height: 90px;
+            transition: border-color 0.15s;
+            min-height: 0;
+            height: 100%;
         }
 
-        .logo-item:hover {
-            background: var(--surface-2);
+        .collab-logo-item:hover {
+            border-color: var(--accent);
         }
 
-        .logo-item img {
-            max-width: 100px;
-            max-height: 40px;
-            object-fit: contain;
-            filter: grayscale(40%);
-            opacity: 0.85;
-            transition: 0.15s;
-        }
-
-        .logo-item:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-
-        .logo-item span {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .logo-text {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text);
+        .collab-logo-mark {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            line-height: 1.25;
+            text-align: center;
+            overflow-wrap: anywhere;
         }
 
         /* ── Team ── */
@@ -485,8 +481,8 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .logo-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            .collab-logo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
             }
         }
     </style>
@@ -580,20 +576,21 @@
         <div class="container">
             <p class="section-label">Who We Work With</p>
             <h2>Clients &amp; Partners</h2>
-            <p class="clients-intro">Our current clients include AI research labs and industry startups.</p>
-            <div class="logo-grid">
-                <div class="logo-item">
-                    <img src="https://trustwise.ai/wp-content/uploads/2025/05/New-Logo.png" alt="Trustwise AI" loading="lazy">
-                    <span>Trustwise AI</span>
+            <div class="collab-category-title">Industry &amp; Startups</div>
+            <div class="collab-logo-grid">
+
+                <div class="collab-logo-item">
+                    <div class="collab-logo-mark">Trustwise AI</div>
                 </div>
-                <div class="logo-item">
-                    <span class="logo-text">Disha AI</span>
-                    <span>Adaptive Learning</span>
+
+                <div class="collab-logo-item">
+                    <div class="collab-logo-mark">Disha AI</div>
                 </div>
-                <div class="logo-item">
-                    <span class="logo-text">Birla AI Labs</span>
-                    <span>AI Research</span>
+
+                <div class="collab-logo-item">
+                    <div class="collab-logo-mark">Birla AI Labs</div>
                 </div>
+
             </div>
         </div>
     </section>
